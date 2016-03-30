@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+
+
+var task = process.argv[ 2 ];
+var lager = require( "../lib/lager" );
+
+
+
+if ( task === "init" ) {
+    require( "../lib/init" )().then(function () {
+        lager( "cache", "Contentful template scaffold generated!" );
+    });
+
+} else if ( task === "sync" ) {
+    require( "../lib/sync" )().then(function () {
+        lager( "cache", "Contentful sync success!" );
+
+    }).catch(function ( error ) {
+        require( "./lib/error" )( error );
+    });
+
+} else if ( task === "build" ) {
+    require( "../lib/build" )().then(function () {
+        lager( "cache", "Contentful static build generated!" );
+    });;
+
+} else if ( task === "server" ) {
+    require( "../lib/server" )();
+}

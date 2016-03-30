@@ -1,0 +1,36 @@
+{
+  "name": "contentful-express",
+  "version": "0.1.0",
+  "description": "Express.js server mapped to Contentful content-types.",
+  "main": "server/app.js",
+  "directories": {
+    "bin": "./bin"
+  },
+  "bin": {
+    "contentful-express": "./bin/contentful-express"
+  },
+  "keywords": [
+    "contentful",
+    "express",
+    "scaffold"
+  ],
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Brandon Kitajchuk",
+      "email": "kitajchuk@gmail.com",
+      "url": "http://blkpdx.com"
+    }
+  ],
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "consolidate": "^0.14.0",
+    "contentful": "^3.3.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "lowdb": "^0.12.5",
+    "q": "^1.4.1",
+    "rimraf": "^2.5.2"
+  }
+}
