@@ -12,7 +12,7 @@ contentful-express
 ### Data + Routes + Templates
 This tool maps your [Contentful](https://www.contentful.com/) `contentTypes` to a node dev server and a static site builder. How does that work?
 
-If you have a contentType called `Artist` with and id of `artist` you get the following routes:
+If you have a contentType called `Artist` with an id of `artist` you get the following routes:
 
 ```shell
 /artist/
@@ -30,7 +30,7 @@ The default template language is [ejs](https://github.com/tj/ejs). But since thi
 
 
 ### Config.js
-The `config.js` file is your configuration file for this tool. Its set to work out of the box with all the defaults. Make sure you add your contentful `space ID` and `accessToken` to it.
+The `config.js` file is your configuration file for this tool. It's set to work out of the box with all the defaults. Make sure you add your contentful `space ID` and `accessToken` to it.
 
 All settings in this file can be changed. If you change the locations of output for `css` and `js` in your `package.json`, make sure you upate `static.js` or `static.css` in `config.js`.
 
@@ -55,7 +55,7 @@ template/
 ### Source + Static
 As a base, [ProperJS/App](https://github.com/ProperJS/App) is loaded for you as your `source` starting point for Javascript and SASS. Check the [readme](https://github.com/ProperJS/App#workflow) for all the great `npm` scripts that are already configured for this.
 
-If you don't want to use that, simply can it and start from scratch or use some other boilerplate you prefer.
+If you don't want to use that, simply trash it and start from scratch or use some other boilerplate you prefer.
 
 
 
