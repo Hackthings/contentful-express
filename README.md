@@ -21,11 +21,22 @@ If you have a contentType called `Artist` with an id of `artist` you get the fol
 
 The first one is a listing of all `entries` for the contentType. The second one is a single `entry` post by `ID`.
 
-You can view the `json` data that is exposed to the templates for each route by using the query format, `?format=json`.
-
-You can author a homepage using the `index.html` file in the templates directory.
-
 The default template language is [ejs](https://github.com/tj/ejs). But since this tool uses [consolidate](https://www.npmjs.com/package/consolidate) you can use any of the supported languages there. Just change the `lang` field in `config.js` to whatever you like.
+
+
+#### Template Data
+The following data context is exposed to all templates. The caveat being that `entry` and `entries` are contextual to whether you are looking at a contentType list of entries or a single entry by contentType.
+
+```javascript
+{
+    space: {object},
+    static: {object},
+    staticPages: {array},
+    contentTypes: {array},
+    entry: {object},
+    entries: {array}
+}
+```
 
 
 
@@ -56,6 +67,11 @@ template/
 As a base, [ProperJS/App](https://github.com/ProperJS/App) is loaded for you as your `source` starting point for Javascript and SASS. Check the [readme](https://github.com/ProperJS/App#workflow) for all the great `npm` scripts that are already configured for this.
 
 If you don't want to use that, simply trash it and start from scratch or use some other boilerplate you prefer.
+
+
+
+### Static Pages
+Any `.html` file created in the templates root directory will be generated into a static page with no context data from Contentful. So, `about.html` becomes `/about/` as an active route. By default the `index.html` template is reserved as the homepage.
 
 
 

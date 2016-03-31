@@ -17,7 +17,7 @@ if ( task === "init" ) {
         lager( "cache", "Contentful sync success!" );
 
     }).catch(function ( error ) {
-        require( "./lib/error" )( error );
+        require( "../lib/error" )( error );
     });
 
 } else if ( task === "build" ) {

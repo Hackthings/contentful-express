@@ -37,8 +37,8 @@ module.exports = {
         "root": path.join( __dirname, "static" ),
         "css": "/css/screen.css",
         "js": "/js/app.js",
-        "img": "",
-        "fonts": ""
+        "images": "/images/",
+        "fonts": "/fonts/"
     },
 
 
