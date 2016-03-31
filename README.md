@@ -40,6 +40,52 @@ The following data context is exposed to all templates. The caveat being that `e
 
 
 
+#### Ignore Types
+Most likely you'll not want all of your contentTypes to have a routing map. You can use the `ignore` field in `config.js` to specify an array of contentTypes to omit from routing and templating.
+
+```javascript
+{
+    ignore: [
+        "category",
+        "location"
+    ]
+}
+```
+
+
+
+#### Data Mapping
+You can specify data mapping to contentType routes and static page routes using the `mapping` option in `config.js`.
+
+```javascript
+{
+    mapping: {
+        // Map set of contentTypes to homepage, "/"
+        // This will include all entries for all contentTypes mapped
+        "index": [
+            "artist",
+            "category"
+        ],
+
+        // Map a single entry to a static page, "/about/"
+        // This will include the single entry that is mapped by contentType
+        "about": {
+            // The contentType
+            "type": "page",
+
+            // How to match an entry by a field value
+            "entry": {
+                "field": "name",
+                "value": "About"
+            }
+        }
+    }
+}
+```
+
+
+
+
 #### Config.js
 The `config.js` file is your configuration file for this tool. It's set to work out of the box with all the defaults. Make sure you add your contentful `space ID` and `accessToken` to it.
 

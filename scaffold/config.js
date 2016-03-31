@@ -17,6 +17,12 @@ module.exports = {
     },
 
 
+    "ignore": [],
+
+
+    "mapping": {},
+
+
     "server": {
         "port": "1337"
     },
