@@ -101,6 +101,13 @@ contentful-express build
 
 
 
+### Prine Help
+```shell
+contentful-express help
+```
+
+
+
 ## Pull Requests
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
