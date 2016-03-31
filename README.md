@@ -117,7 +117,7 @@ contentful-express build
 
 
 
-### Prine Help
+### Print Help
 ```shell
 contentful-express help
 ```
