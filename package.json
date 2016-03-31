@@ -1,7 +1,8 @@
 {
+  "title": "Contentful Express",
   "name": "contentful-express",
   "version": "0.1.0",
-  "description": "Express.js server mapped to Contentful content-types.",
+  "description": "Static site generator + development server for Contentful data in Node.js.",
   "main": "lib/server.js",
   "directories": {
     "bin": "./bin"

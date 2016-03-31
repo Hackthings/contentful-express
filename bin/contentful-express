@@ -27,4 +27,7 @@ if ( task === "init" ) {
 
 } else if ( task === "server" ) {
     require( "../lib/server" )();
+
+} else if ( task === "help" ) {
+    require( "../lib/help" )();
 }
