@@ -10,6 +10,7 @@ var lager = require( "../lib/lager" );
 if ( task === "init" ) {
     require( "../lib/init" )().then(function () {
         lager( "cache", "Contentful template scaffold generated!" );
+        lager( "info", "Add your space ID and accessToken to config.js" );
     });
 
 } else if ( task === "sync" ) {

@@ -1,7 +1,7 @@
 {
   "title": "Contentful Express",
   "name": "contentful-express",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Static site generator + development server for Contentful data in Node.js.",
   "main": "lib/server.js",
   "directories": {
@@ -47,7 +47,7 @@
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "lowdb": "^0.12.5",
-    "q": "^1.4.1",
-    "rimraf": "^2.5.2"
+    "rimraf": "^2.5.2",
+    "slug": "^0.9.1"
   }
 }

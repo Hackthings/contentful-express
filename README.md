@@ -9,7 +9,23 @@ contentful-express
 
 
 
-#### Data + Routes + Templates
+#### Config.js
+The `config.js` file is your settings file for this tool. It's set to work out of the box with all the defaults. Make sure you add your contentful `space ID` and `accessToken` to it.
+
+```javascript
+{
+    contentful: {
+        space: {spaceId}
+        accessToken: {accessToken}
+    }
+}
+```
+
+All settings in this file can be changed.
+
+
+
+#### Data + Routes
 This tool maps your [Contentful](https://www.contentful.com/) `contentTypes` to a node dev server and a static site builder. How does that work?
 
 If you have a contentType called `Artist` with an id of `artist` you get the following routes:
@@ -21,10 +37,52 @@ If you have a contentType called `Artist` with an id of `artist` you get the fol
 
 The first one is a listing of all `entries` for the contentType. The second one is a single `entry` post by `ID`.
 
-The default template language is [ejs](https://github.com/tj/ejs). But since this tool uses [consolidate](https://www.npmjs.com/package/consolidate) you can use any of the supported languages there. Just change the `lang` field in `config.js` to whatever you like.
+No data from Contentful is altered in any way before passing it to your templates. The one modification is the addition of a property on an `Entry` called `static`. This makes an `Entry` look like this:
+
+```javascript
+{
+    sys: {object},
+    fields: {object},
+    static: {
+        url: {string}
+    }
+}
+```
+
+The addition of the static url is so you can create links in your templates to your entry details. Since the `urls` config option is available, this static url is correctly normalized for you and honored for the server and the static build.
+
+Obviously you may not want your URLs to use the `:id` field for an entry detail template. That's ok. You can specify a field(s) to process as an entry slug. The value must be a regular expression.
+
+```javascript
+{
+    urls: {
+        field: /name|title/
+    }
+}
+```
 
 
-##### Template Data
+
+##### Templates
+Your templates are generated in a similar way to how the routes are mapped. For each `contentType` you get an `entry.html` and an `entries.html` template. So, for `Artist` you get the following:
+
+```shell
+template/
+    artist/
+        entry.html
+        entries.html
+```
+
+The default template language is [ejs](https://github.com/tj/ejs). This tool uses [consolidate](https://www.npmjs.com/package/consolidate) you can use any of the supported languages there. Just change the `lang` field in `template` settings in `config.js`.
+
+```javascript
+{
+    template: {
+        lang: "mustache"
+    }
+}
+```
+
 The following data context is exposed to all templates. The caveat being that `entry` and `entries` are contextual to whether you are looking at a contentType list of entries or a single entry by contentType.
 
 ```javascript
@@ -33,8 +91,12 @@ The following data context is exposed to all templates. The caveat being that `e
     static: {object},
     staticPages: {array},
     contentTypes: {array},
-    entry: {object},
-    entries: {array}
+
+    // Exposed to entry.html
+    entry?: {object},
+
+    // Exposed to entries.html
+    entries?: {array}
 }
 ```
 
@@ -85,14 +147,6 @@ You can specify data mapping to contentType routes and static page routes using 
 
 
 
-
-#### Config.js
-The `config.js` file is your configuration file for this tool. It's set to work out of the box with all the defaults. Make sure you add your contentful `space ID` and `accessToken` to it.
-
-All settings in this file can be changed. If you change the locations of output for `css` and `js` in your `package.json`, make sure you upate `static.js` or `static.css` in `config.js`.
-
-
-
 #### Scaffold
 A scaffold is generated for you in the directory you call `contentful-express init` within. You get the following.
 
@@ -110,6 +164,8 @@ template/
 
 
 #### Source + Static
+If you change the locations of output for `css` and `js` in your `package.json`, make sure you upate `static.js` and/or `static.css` in `config.js`.
+
 As a base, [ProperJS/App](https://github.com/ProperJS/App) is loaded for you as your `source` starting point for Javascript and SASS. Check the [readme](https://github.com/ProperJS/App#workflow) for all the great `npm` scripts that are already configured for this.
 
 If you don't want to use that, simply trash it and start from scratch or use some other boilerplate you prefer.

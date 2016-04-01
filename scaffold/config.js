@@ -17,6 +17,9 @@ module.exports = {
     },
 
 
+    "urls": {},
+
+
     "ignore": [],
 
 
@@ -41,8 +44,8 @@ module.exports = {
 
     "static": {
         "root": path.join( __dirname, "static" ),
-        "css": "/css/screen.css",
-        "js": "/js/app.js",
+        "css": "/css/",
+        "js": "/js/",
         "images": "/images/",
         "fonts": "/fonts/"
     },
