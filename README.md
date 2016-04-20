@@ -63,7 +63,7 @@ Obviously you may not want your URLs to use the `:id` field for an entry detail 
 
 
 
-##### Templates
+#### Templates
 Your templates are generated in a similar way to how the routes are mapped. For each `contentType` you get an `entry.html` and an `entries.html` template. So, for `Artist` you get the following:
 
 ```shell
@@ -73,12 +73,19 @@ template/
         entries.html
 ```
 
-The default template language is [ejs](https://github.com/tj/ejs). This tool uses [consolidate](https://www.npmjs.com/package/consolidate) you can use any of the supported languages there. Just change the `lang` field in `template` settings in `config.js`.
+The default template language is [ejs](https://github.com/tj/ejs). This tool uses [consolidate](https://www.npmjs.com/package/consolidate) so you can use any of the supported languages there. You need to provide the template engine you wish to use. Say you would like to use mustache. You would do the following:
 
+Install mustache as a local dependency for your project.
+```shell
+npm install mustache --save-dev
+```
+
+Provide the mustache ref to consolidate through `config.js`.
 ```javascript
 {
     template: {
-        lang: "mustache"
+        lang: "mustache",
+        engine: require( "mustache" )
     }
 }
 ```
