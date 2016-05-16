@@ -5,6 +5,62 @@ contentful-express
 
 
 
+### Install
+```shell
+npm install contentful-express -g
+```
+
+
+
+### Usage
+
+#### New Project
+```shell
+mkdir my-project
+
+cd my-project
+
+contentful-express init
+```
+
+
+
+#### Run Server
+```shell
+contentful-express server
+```
+
+
+
+#### Run Sync
+```shell
+contentful-express sync
+```
+
+
+
+#### Run Build
+```shell
+contentful-express build
+```
+
+
+
+#### Print Help
+```shell
+contentful-express help
+```
+
+
+
+#### ProperJS/App scaffold
+When using the default client-side application scaffold, you can start the project using bin scripts. This boots the dev server and runs webpack.
+```shell
+./bin/start
+```
+
+
+
 ### About
 
 
@@ -155,7 +211,11 @@ You can specify data mapping to contentType routes and static page routes using 
 
 
 #### Scaffold
-A scaffold is generated for you in the directory you call `contentful-express init` within. You get the following.
+A scaffold is generated for you in the directory you call `prismic-express init` within. This starts your templates for the dev server and site generator.
+
+It also pulls in [ProperJS/App](https://github.com/ProperJS/App) as your client-side application scaffold. Check the [ProperJS/App readme](https://github.com/ProperJS/App) for more on this.
+
+If you don't want to use ProperJS/App, simply trash it and start from scratch or use some other boilerplate you prefer.
 
 
 ```shell
@@ -166,70 +226,13 @@ README.md
 source/
 static/
 template/
+webpack.config.js
 ```
-
-
-
-#### Source + Static
-If you change the locations of output for `css` and `js` in your `package.json`, make sure you upate `static.js` and/or `static.css` in `config.js`.
-
-As a base, [ProperJS/App](https://github.com/ProperJS/App) is loaded for you as your `source` starting point for Javascript and SASS. Check the [readme](https://github.com/ProperJS/App#workflow) for all the great `npm` scripts that are already configured for this.
-
-If you don't want to use that, simply trash it and start from scratch or use some other boilerplate you prefer.
 
 
 
 #### Static Pages
 Any `.html` file created in the templates root directory will be generated into a static page with no context data from Contentful. So, `about.html` becomes `/about/` as an active route. By default the `index.html` template is reserved as the homepage.
-
-
-
-
-### Install
-```shell
-npm install contentful-express -g
-```
-
-
-
-### Usage
-
-#### New Project
-```shell
-mkdir my-project
-
-cd my-project
-
-contentful-express init
-```
-
-
-
-#### Run Server
-```shell
-contentful-express server
-```
-
-
-
-#### Run Sync
-```shell
-contentful-express sync
-```
-
-
-
-#### Run Build
-```shell
-contentful-express build
-```
-
-
-
-#### Print Help
-```shell
-contentful-express help
-```
 
 
 

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+contentful-express server &
+PID=$!
+trap 'kill -9 $PID' TERM INT
+npm start
+trap - TERM INT
+echo "Exited."
